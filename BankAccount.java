@@ -1,22 +1,22 @@
 public class BankAccount {
   private double balance;
-  private int accountID;
-  private String password;
+  private int accountIDs;
+  private String passwords;
 
   public BankAccount(int accountID, String password) {
-    accountID = accountID;
-    password = password;
+    accountIDs = accountID;
+    passwords = password;
     balance = 0;
   }
 
   public String toString() {
-    return accountID + "\t" + balance;
+    return accountIDs + "\t" + balance;
   }
 
   public boolean deposit(double amount) {
     if (amount > 0) {
       balance += amount;
-      System.out.println("Deposit success!");
+      System.out.println("Deposit success! You deposited " + amount);
       return true;
     } else {
       System.out.println("Depsoit failed.");
@@ -30,14 +30,14 @@ public class BankAccount {
       return false;
     } else {
       balance -= amount;
-      System.out.println("Withdrawal succes!");
+      System.out.println("Withdrawal success! You withdrew " + amount);
       return true;
     }
   }
 
   public void setPassword (String newPass) {
     System.out.println("New password set!");
-    password = newPass;
+    passwords = newPass;
   }
 
   public double getBalance() {
@@ -45,6 +45,6 @@ public class BankAccount {
   }
 
   public int getAccountID() {
-    return accountID;
+    return accountIDs;
   }
 }
