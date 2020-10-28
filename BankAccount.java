@@ -16,27 +16,27 @@ public class BankAccount {
   public boolean deposit(double amount) {
     if (amount > 0) {
       balance += amount;
-      println("Deposit success!");
+      System.out.println("Deposit success!");
       return true;
     } else {
-      println("Depsoit failed.");
+      System.out.println("Depsoit failed.");
       return false;
     }
   }
 
   public boolean withdraw(double amount) {
     if ((amount > balance) || (amount < 0)) {
-      println("Withdrawal failure.");
+      System.out.println("Withdrawal failure.");
       return false;
     } else {
       balance -= amount;
-      println("Withdrawal succes!");
+      System.out.println("Withdrawal succes!");
       return true;
     }
   }
 
   public void setPassword (String newPass) {
-    println("New password set!");
+    System.out.println("New password set!");
     password = newPass;
   }
 
