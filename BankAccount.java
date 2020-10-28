@@ -14,7 +14,7 @@ public class BankAccount {
   }
 
   public boolean deposit(double amount) {
-    if (amount > 0) {
+    if (amount >= 0) {
       balance += amount;
       System.out.println("Deposit success! You deposited " + amount);
       return true;
