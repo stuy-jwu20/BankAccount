@@ -1,17 +1,34 @@
 public class BankAccount {
   private double balance;
-  private int accountIDs;
-  private String passwords;
+  private int accountID;
+  private String password;
+
+  private boolean authenticate(String password) {
+    return (this.password.equals(password));
+  }
 
   public BankAccount(int accountID, String password) {
-    accountIDs = accountID;
-    passwords = password;
+    this.accountID = accountID;
+    this.password = password;
     balance = 0;
   }
 
+  public boolean transferTo(BankAccount other, double amount, String password) {
+    if(authenticate(password) && withdraw(amount)) {
+      if(other.deposit(amount)) {
+        System.out.println("Transfer was successful!");
+        return true;
+      } else {
+        System.out.println("Major error! If you see this error message, call customer support! We could not deposit.");
+      }
+    }
+    return false;
+}
+
   public String toString() {
-    return accountIDs + "\t" + balance;
+    return "#" + this.accountID + "\t" + "$" + balance;
   }
+
 
   public boolean deposit(double amount) {
     if (amount >= 0) {
@@ -37,7 +54,7 @@ public class BankAccount {
 
   public void setPassword (String newPass) {
     System.out.println("New password set!");
-    passwords = newPass;
+    this.password = newPass;
   }
 
   public double getBalance() {
@@ -45,6 +62,6 @@ public class BankAccount {
   }
 
   public int getAccountID() {
-    return accountIDs;
+    return accountID;
   }
 }
